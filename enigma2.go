@@ -4,14 +4,11 @@ import (
 	"bytes"
 	"fmt"
 	"io/ioutil"
-	logger "log"
 	"net/http"
 	"strings"
 	"time"
 )
 
-// EnableLogging allows you to turn on debug logging
-var EnableLogging = true
 var match = ""
 var port = 80
 var err = ""
@@ -322,11 +319,4 @@ func (stb *STB) SendCommand(cmd string) error {
 
 	}
 	return nil
-}
-
-func log(msg string, args ...interface{}) {
-	if EnableLogging {
-		logger.Printf("enigma2: "+msg, args...)
-		fmt.Println(msg)
-	}
 }
