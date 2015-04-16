@@ -1,0 +1,10 @@
+{
+  "id": "net.appleague.go-enigma",
+  "name": "Enigma GO Package",
+  "version": "0.1.0",
+  "description": "Control of Enigma2 based Smart STBs using IP",
+  "main": "go-enigma2",
+  "author": "Martin Hennerbichler <martin@appleague.net>",
+  "license": "MIT",
+  "maxMemory": 10
+}
