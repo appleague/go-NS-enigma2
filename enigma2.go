@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"net/url"
 	"strings"
 	"time"
 )
@@ -78,7 +79,9 @@ func (stb *STB) Online(timeout time.Duration) bool {
 
 func (stb *STB) SendMessage(msg string) error {
 	//send message to stb/tv via stb web control feature
-	res, err := http.Get(fmt.Sprintf("http://%s:%d/web/message?text=%s&type=1&timeout=5", stb.Host, port, msg))
+	msgescaped := url.QueryEscape(msg)
+
+	res, err := http.Get(fmt.Sprintf("http://%s:%d/web/message?text=%s&type=1&timeout=5", stb.Host, port, msgescaped))
 	if err != nil {
 		fmt.Println(fmt.Sprintf("ERROR: %s", err))
 	}
